@@ -12,7 +12,7 @@
 
 using namespace std;
 
-enum TokenType : char
+enum TokenType : short
 {
     NONE,
 
@@ -48,6 +48,18 @@ enum TokenType : char
     HEADING4,
     HEADING5,
     HEADING6,
+    HEADING7,
+    HEADING8,
+    HEADING9,
+    HEADING10,
+    HEADING11,
+    HEADING12,
+    HEADING13,
+    HEADING14,
+    HEADING15,
+    HEADING16,
+    HEADING17,
+    HEADING18,
 
     QUOTE1,
     QUOTE2,
@@ -107,6 +119,18 @@ enum TokenType : char
     LINK_TARGET_HEADING4,
     LINK_TARGET_HEADING5,
     LINK_TARGET_HEADING6,
+    LINK_TARGET_HEADING7,
+    LINK_TARGET_HEADING8,
+    LINK_TARGET_HEADING9,
+    LINK_TARGET_HEADING10,
+    LINK_TARGET_HEADING11,
+    LINK_TARGET_HEADING12,
+    LINK_TARGET_HEADING13,
+    LINK_TARGET_HEADING14,
+    LINK_TARGET_HEADING15,
+    LINK_TARGET_HEADING16,
+    LINK_TARGET_HEADING17,
+    LINK_TARGET_HEADING18,
 
     TIMESTAMP_DATA,
     PRIORITY_DATA,
@@ -523,7 +547,11 @@ struct Scanner
             // '*' chars then we will still fall back to the HEADING6 token
             // instead.
             if (check_detached({HEADING1, HEADING2, HEADING3,
-                                HEADING4, HEADING5, HEADING6}, '*'))
+				HEADING4, HEADING5, HEADING6,
+				HEADING7, HEADING8, HEADING9,
+                                HEADING10, HEADING11, HEADING12,
+                                HEADING13, HEADING14, HEADING15,
+                                HEADING16, HEADING17, HEADING18}, '*'))
                 return true;
 
             // Check for the existence of quotes
@@ -1035,7 +1063,7 @@ struct Scanner
                 }
 
                 lexer->result_symbol = m_LastToken =
-                    static_cast<TokenType>(LINK_TARGET_HEADING1 + (count <= 5 ? count : 5));
+                    static_cast<TokenType>(LINK_TARGET_HEADING1 + (count <= 17 ? count : 17));
 
                 if (!iswspace(lexer->lookahead))
                     return false;

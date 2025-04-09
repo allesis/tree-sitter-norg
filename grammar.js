@@ -100,6 +100,18 @@ module.exports = grammar({
         $.heading4_prefix,
         $.heading5_prefix,
         $.heading6_prefix,
+        $.heading7_prefix,
+        $.heading8_prefix,
+        $.heading9_prefix,
+        $.heading10_prefix,
+        $.heading11_prefix,
+        $.heading12_prefix,
+        $.heading13_prefix,
+        $.heading14_prefix,
+        $.heading15_prefix,
+        $.heading16_prefix,
+        $.heading17_prefix,
+        $.heading18_prefix,
 
         $.quote1_prefix,
         $.quote2_prefix,
@@ -159,6 +171,18 @@ module.exports = grammar({
         $.link_target_heading4,
         $.link_target_heading5,
         $.link_target_heading6,
+        $.link_target_heading7,
+        $.link_target_heading8,
+        $.link_target_heading9,
+        $.link_target_heading10,
+        $.link_target_heading11,
+        $.link_target_heading12,
+        $.link_target_heading13,
+        $.link_target_heading14,
+        $.link_target_heading15,
+        $.link_target_heading16,
+        $.link_target_heading17,
+        $.link_target_heading18,
 
         $.timestamp_data,
         $.priority_data,
@@ -400,6 +424,18 @@ module.exports = grammar({
             alias($.link_target_heading4, "_word"),
             alias($.link_target_heading5, "_word"),
             alias($.link_target_heading6, "_word"),
+            alias($.link_target_heading7, "_word"),
+            alias($.link_target_heading8, "_word"),
+            alias($.link_target_heading9, "_word"),
+            alias($.link_target_heading10, "_word"),
+            alias($.link_target_heading11, "_word"),
+            alias($.link_target_heading12, "_word"),
+            alias($.link_target_heading13, "_word"),
+            alias($.link_target_heading14, "_word"),
+            alias($.link_target_heading15, "_word"),
+            alias($.link_target_heading16, "_word"),
+            alias($.link_target_heading17, "_word"),
+            alias($.link_target_heading18, "_word"),
         ),
 
         // ---- ATTACHED MODIFIERS ----
@@ -558,6 +594,18 @@ module.exports = grammar({
                     $.link_target_heading4,
                     $.link_target_heading5,
                     $.link_target_heading6,
+                    $.link_target_heading7,
+                    $.link_target_heading8,
+                    $.link_target_heading9,
+                    $.link_target_heading10,
+                    $.link_target_heading11,
+                    $.link_target_heading12,
+                    $.link_target_heading13,
+                    $.link_target_heading14,
+                    $.link_target_heading15,
+                    $.link_target_heading16,
+                    $.link_target_heading17,
+                    $.link_target_heading18,
                 ),
             ),
             field("text", alias($._link_content, $.paragraph)),
@@ -627,6 +675,18 @@ module.exports = grammar({
         heading4: $ => gen_heading($, 4),
         heading5: $ => gen_heading($, 5),
         heading6: $ => gen_heading($, 6),
+        heading7: $ => gen_heading($, 7),
+        heading8: $ => gen_heading($, 8),
+        heading9: $ => gen_heading($, 9),
+        heading10: $ => gen_heading($, 10),
+        heading11: $ => gen_heading($, 11),
+        heading12: $ => gen_heading($, 12),
+        heading13: $ => gen_heading($, 13),
+        heading14: $ => gen_heading($, 14),
+        heading15: $ => gen_heading($, 15),
+        heading16: $ => gen_heading($, 16),
+        heading17: $ => gen_heading($, 17),
+        heading18: $ => gen_heading($, 18),
 
         // A quote:
         // > That's what she said
@@ -947,6 +1007,18 @@ module.exports = grammar({
             $.heading4,
             $.heading5,
             $.heading6,
+            $.heading7,
+            $.heading8,
+            $.heading9,
+            $.heading10,
+            $.heading11,
+            $.heading12,
+            $.heading13,
+            $.heading14,
+            $.heading15,
+            $.heading16,
+            $.heading17,
+            $.heading18,
         ),
 
         // A list of detached modifiers (excluding headings and definitons)
@@ -1053,7 +1125,7 @@ function gen_detached_modifier($, prefix, ...rest) {
 
 function gen_heading($, level) {
     let lower_level_heading = []
-    for (let i = 0; i + level < 6; i++) {
+    for (let i = 0; i + level < 18; i++) {
         lower_level_heading[i] = $["heading" + (i + 1 + level)]
     }
 
